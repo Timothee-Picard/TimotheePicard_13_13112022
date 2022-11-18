@@ -1,5 +1,8 @@
 import './index.css'
 
+import store from './app/store'
+import { Provider } from 'react-redux'
+
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
@@ -21,7 +24,7 @@ const router = createBrowserRouter([
                 element: <Home />,
             },
             {
-                path: "/profil/:userId",
+                path: "/profil",
                 element: <Profile />,
             },
             ,
@@ -42,7 +45,9 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById('app')).render(
-    <React.StrictMode>
-        <RouterProvider router={router} />
-    </React.StrictMode>
+    <Provider store={store}>
+        <React.StrictMode>
+            <RouterProvider router={router} />
+        </React.StrictMode>
+    </Provider>
 )

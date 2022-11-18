@@ -1,11 +1,14 @@
-import { Link } from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import { Outlet  } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
 import Logo from "../../assets/argentBankLogo.png"
+import {useDispatch, useSelector} from "react-redux";
+import {selectToken, setToken} from "../../features/user/userSlice.js";
 
 export default function Layout() {
-    const pathname = useLocation().pathname
+    const dispatch = useDispatch()
+    const userToken = useSelector(selectToken)
   return (
     <>
         <nav className="main-nav">
@@ -18,10 +21,21 @@ export default function Layout() {
                 <h1 className="sr-only">Argent Bank</h1>
             </Link>
             <div>
-                <Link className="main-nav-item" to="/connexion">
-                    <i className="fa fa-user-circle"></i>
-                    Sign In
-                </Link>
+                {
+                    (userToken)? (
+                        <>
+                            <a className="main-nav-item" onClick={() => dispatch(setToken(null))}>
+                                <i className="fa fa-user-circle"></i>
+                                Sign Out
+                            </a>
+                        </>
+                    ) : (
+                        <Link className="main-nav-item" to="/connexion">
+                            <i className="fa fa-user-circle"></i>
+                            Sign In
+                        </Link>
+                    )
+                }
             </div>
         </nav>
         <main>

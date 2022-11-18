@@ -260,7 +260,7 @@ body {
 }
 
 .header {
-    color: #fff;
+    color: #2c3e50;
     margin-bottom: 2rem;
 }
 
@@ -288,4 +288,46 @@ body {
     .transaction-button {
         width: 200px;
     }
+}
+
+.profilForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.profilFormInputList,
+.profilFormBottom {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.profilFormInputList input {
+    padding: 10px;
+    border-radius: 5px;
+    color: #cccccc;
+    border: 2px solid #cccccc;
+    font-size: 1em;
+}
+.profilFormInputList input:focus {
+    color: #2c3e50;
+}
+.profilFormBottom input,
+.profilFormBottom button {
+    border-radius: 5px;
+    padding: 10px 30px;
+    color: cornflowerblue;
+    background-color: white;
+    font-weight: 700;
+    text-transform: capitalize;
+    border: 2px solid cornflowerblue;
+    font-size: 1em;
+}
+
+.profilFormBottom input:hover,
+.profilFormBottom input:focus,
+.profilFormBottom button:hover,
+.profilFormBottom button:focus {
+    color: white;
+    background-color: #bbbbbb;
 }
