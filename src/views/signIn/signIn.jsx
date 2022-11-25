@@ -15,7 +15,6 @@ export default function SignIn() {
     const handleSubmit = (e) => {
         e.preventDefault()
         const {username, password } = e.target.elements
-        console.log({username: username.value, password: password.value })
         dispatch(tokenAsync(username.value,password.value))
             .then(() => {
                 navigate("/profil")
