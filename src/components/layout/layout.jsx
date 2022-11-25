@@ -1,7 +1,5 @@
-import {Link, useNavigate} from "react-router-dom";
+import {Link} from "react-router-dom";
 import { Outlet  } from "react-router-dom";
-import { useLocation } from "react-router-dom";
-
 import Logo from "../../assets/argentBankLogo.png"
 import {useDispatch, useSelector} from "react-redux";
 import {selectToken, setToken} from "../../features/user/userSlice.js";
