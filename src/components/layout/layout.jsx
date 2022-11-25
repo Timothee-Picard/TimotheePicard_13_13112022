@@ -2,11 +2,13 @@ import {Link} from "react-router-dom";
 import { Outlet  } from "react-router-dom";
 import Logo from "../../assets/argentBankLogo.png"
 import {useDispatch, useSelector} from "react-redux";
-import {selectToken, setToken} from "../../features/user/userSlice.js";
+import {selectToken, selectUser, setToken} from "../../features/user/userSlice.js";
+import React from "react";
 
 export default function Layout() {
     const dispatch = useDispatch()
     const userToken = useSelector(selectToken)
+    const user = useSelector(selectUser)
   return (
     <>
         <nav className="main-nav">
@@ -22,8 +24,12 @@ export default function Layout() {
                 {
                     (userToken)? (
                         <>
-                            <a className="main-nav-item" onClick={() => dispatch(setToken(null))}>
+                            <Link className="main-nav-item" to="/profil">
                                 <i className="fa fa-user-circle"></i>
+                                {user.firstName}
+                            </Link>
+                            <a className="main-nav-item" onClick={() => dispatch(setToken(null))}>
+                                <i className="fa fa-sign-out"></i>
                                 Sign Out
                             </a>
                         </>
